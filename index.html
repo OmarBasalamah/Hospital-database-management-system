@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Database Portal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>Health<span>DB</span></h2>
+                <p>Management Portal</p>
+            </div>
+            <nav class="sidebar-nav">
+                <div class="nav-section-title">Database Tables</div>
+                <button class="nav-btn active" data-type="table" data-id="patient">
+                    <span class="icon">🛌</span> Patients
+                </button>
+                <button class="nav-btn" data-type="table" data-id="doctor">
+                    <span class="icon">🩺</span> Doctors
+                </button>
+                <button class="nav-btn" data-type="table" data-id="doctor_phone">
+                    <span class="icon">📱</span> Doctor Phones
+                </button>
+                <button class="nav-btn" data-type="table" data-id="nurse">
+                    <span class="icon">👩‍⚕️</span> Nurses
+                </button>
+                <button class="nav-btn" data-type="table" data-id="nurse_phone">
+                    <span class="icon">📱</span> Nurse Phones
+                </button>
+                <button class="nav-btn" data-type="table" data-id="room">
+                    <span class="icon">🚪</span> Rooms
+                </button>
+                <button class="nav-btn" data-type="table" data-id="medicine">
+                    <span class="icon">💊</span> Medicines
+                </button>
+                <button class="nav-btn" data-type="table" data-id="companion">
+                    <span class="icon">👥</span> Companions
+                </button>
+
+                <div class="nav-section-title" style="margin-top: 2rem;">Complex Queries</div>
+                <button class="nav-btn" data-type="query" data-id="1">
+                    <span class="icon">🔍</span> Query 1 (JOIN)
+                </button>
+                <button class="nav-btn" data-type="query" data-id="2">
+                    <span class="icon">📞</span> Query 2 (UNION)
+                </button>
+                <button class="nav-btn" data-type="query" data-id="3">
+                    <span class="icon">💰</span> Query 3 (SUM)
+                </button>
+                <button class="nav-btn" data-type="query" data-id="4">
+                    <span class="icon">📊</span> Query 4 (GROUP BY)
+                </button>
+                <button class="nav-btn" data-type="query" data-id="5">
+                    <span class="icon">🔄</span> Query 5 (Self-Join)
+                </button>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="top-header">
+                <div class="header-titles">
+                    <h1 id="query-title">Patients Directory</h1>
+                    <p id="query-desc">Viewing all records from the PATIENT table.</p>
+                </div>
+
+                <!-- Query Details (SQL and Algebra) -->
+                <div id="query-details" class="query-details hidden fade-in">
+                    <div class="code-block">
+                        <span class="code-label">SQL</span>
+                        <code id="sql-code"></code>
+                    </div>
+                    <div class="code-block">
+                        <span class="code-label">Relational Algebra</span>
+                        <code id="algebra-code"></code>
+                    </div>
+                </div>
+            </header>
+
+            <div class="content-area">
+                <div class="glass-panel">
+                    
+                    <!-- Search Bar -->
+                    <div class="search-wrapper hidden" id="search-container">
+                        <span class="search-icon">🔍</span>
+                        <input type="text" class="search-input" id="search-input" placeholder="Live search across all columns..." autocomplete="off">
+                    </div>
+
+                    <div id="loader" class="loader hidden"></div>
+                    <div id="error-message" class="error-message hidden"></div>
+                    <div id="table-container" class="table-container">
+                        <!-- Table will be injected here by JS -->
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <script src="app.js"></script>
+</body>
+</html>
